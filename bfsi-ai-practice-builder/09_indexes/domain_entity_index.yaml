@@ -1,0 +1,9 @@
+domains:
+  banking:
+    entities: [customer, account, product, transaction, payment, balance]
+  insurance:
+    entities: [customer, policy, claim, premium, coverage]
+  fraud:
+    entities: [customer, account, transaction, merchant, device, alert, case]
+  regulatory_reporting:
+    entities: [customer, account, product, balance, tax_residency, reportable_event]

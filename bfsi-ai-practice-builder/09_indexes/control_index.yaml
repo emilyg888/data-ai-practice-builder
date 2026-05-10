@@ -1,0 +1,11 @@
+controls:
+  - id: data_quality
+    group: data_controls
+  - id: lineage
+    group: data_controls
+  - id: access_control
+    group: security_controls
+  - id: ai_evaluation
+    group: ai_controls
+  - id: human_approval
+    group: ai_controls

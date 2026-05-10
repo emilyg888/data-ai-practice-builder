@@ -1,0 +1,10 @@
+patterns:
+  - id: regulatory_reporting_data_layer
+    name: Regulatory Reporting Data Layer
+    path: ../02_patterns/regulatory_reporting_data_layer/pattern.md
+  - id: governed_rag_knowledge_base
+    name: Governed RAG Knowledge Base
+    path: ../02_patterns/governed_rag_knowledge_base/pattern.md
+  - id: fraud_signal_layer
+    name: Fraud Signal Layer
+    path: ../02_patterns/fraud_signal_layer/pattern.md

@@ -1,0 +1,7 @@
+playbooks:
+  - id: ai_readiness_assessment
+    path: ../03_playbooks/ai_readiness_assessment/playbook.md
+  - id: governed_rag_delivery
+    path: ../03_playbooks/governed_rag_delivery/playbook.md
+  - id: regulatory_reporting_delivery
+    path: ../03_playbooks/regulatory_reporting_delivery/playbook.md

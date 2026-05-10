@@ -1,0 +1,17 @@
+capabilities:
+  - id: data_ingestion
+    name: Data Ingestion
+    layer: data_foundation
+    path: ../01_capabilities/data_foundation/data_ingestion.md
+  - id: data_quality
+    name: Data Quality
+    layer: data_foundation
+    path: ../01_capabilities/data_foundation/data_quality.md
+  - id: semantic_layer
+    name: Semantic Layer
+    layer: ai_enablement
+    path: ../01_capabilities/ai_enablement/semantic_layer.md
+  - id: rag
+    name: RAG
+    layer: ai_enablement
+    path: ../01_capabilities/ai_enablement/rag.md
