@@ -4,18 +4,13 @@ domain: regulatory_reporting
 status: draft
 ---
 
-# regulatory reporting Case Study
+# Regulatory Reporting Case Studies
 
-## 1. Client situation
+## Imported case-study files
+- semantic-foundry-governance-certification-gate.md
 
-## 2. Problem statement
+## Domain summary
+This case study set currently emphasizes deterministic governance and certification gates for semantic AI assets before controlled release.
 
-## 3. Architecture approach
-
-## 4. Controls and governance
-
-## 5. Delivery roadmap
-
-## 6. Outcomes
-
-## 7. Reusable assets extracted
+## Suggested use
+Use this folder for source-to-report governance, approval workflows, and evidence-oriented architecture discussions with compliance and audit teams.

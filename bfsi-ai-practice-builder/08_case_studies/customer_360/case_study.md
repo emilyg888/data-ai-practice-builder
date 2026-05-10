@@ -4,18 +4,13 @@ domain: customer_360
 status: draft
 ---
 
-# customer 360 Case Study
+# Customer 360 Case Studies
 
-## 1. Client situation
+## Imported case-study files
+No imported files yet.
 
-## 2. Problem statement
+## Domain summary
+Customer 360 case studies should focus on unified customer entity resolution, profile governance, consent-aware data sharing, and AI-assisted next-best-action workflows.
 
-## 3. Architecture approach
-
-## 4. Controls and governance
-
-## 5. Delivery roadmap
-
-## 6. Outcomes
-
-## 7. Reusable assets extracted
+## Suggested use
+Add customer-centric scenarios here when new LinkedIn-derived use cases or client examples are available.

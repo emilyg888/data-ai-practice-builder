@@ -4,18 +4,15 @@ domain: ai_copilot
 status: draft
 ---
 
-# ai copilot Case Study
+# AI Copilot Case Studies
 
-## 1. Client situation
+## Imported case-study files
+- kafka-lambda-trigger-layer-for-genai.md
+- genai-inference-cost-optimization-via-signal-filtering.md
+- streaming-ai-decision-observability-and-evaluation.md
 
-## 2. Problem statement
+## Domain summary
+These case studies cover event-driven GenAI invocation control, cost-aware trigger policies, and decision observability loops for AI operations.
 
-## 3. Architecture approach
-
-## 4. Controls and governance
-
-## 5. Delivery roadmap
-
-## 6. Outcomes
-
-## 7. Reusable assets extracted
+## Suggested use
+Use these files when shaping AI copilot and runtime-governance conversations with platform engineering, MLOps, and FinOps stakeholders.

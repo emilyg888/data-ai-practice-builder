@@ -4,18 +4,17 @@ domain: fraud_detection
 status: draft
 ---
 
-# fraud detection Case Study
+# Fraud Detection Case Studies
 
-## 1. Client situation
+## Imported case-study files
+- fraud-agentic-investigation-with-human-control-boundaries.md
+- fraud-pattern-experimentation-and-promotion-loop.md
+- fraud-semantic-contracts-governed-signal-layer.md
+- semantic-foundry-analyst-review-controls.md
+- semantic-foundry-business-banking-fraud-layer.md
 
-## 2. Problem statement
+## Domain summary
+These case studies cover governed fraud semantics, analyst-in-the-loop controls, adaptive detection experimentation, and agentic investigation workflows with explicit human oversight.
 
-## 3. Architecture approach
-
-## 4. Controls and governance
-
-## 5. Delivery roadmap
-
-## 6. Outcomes
-
-## 7. Reusable assets extracted
+## Suggested use
+Use this folder for fraud strategy, model risk, and responsible-AI consulting narratives where explainability, control boundaries, and auditable operations are required.
