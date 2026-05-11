@@ -327,10 +327,18 @@ h1 span {
 }
 
 .use-case-card {
+  display: block;
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1rem;
   background: #fff;
+  text-decoration: none;
+  color: inherit;
+}
+
+.use-case-card:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.35);
+  outline-offset: 2px;
 }
 
 .use-case-category {
