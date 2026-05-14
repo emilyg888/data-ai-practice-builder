@@ -1,0 +1,144 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="grab-ray-foundation-model-backend" name="Backend Logic">
+    <mxGraphModel dx="1476" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#D1D5DB;fontSize=24;fontStyle=1;align=left;verticalAlign=top;spacingTop=16;spacingLeft=16;" value="1. Source Data" vertex="1">
+          <mxGeometry height="900" width="320" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#D1D5DB;fontSize=24;fontStyle=1;align=left;verticalAlign=top;spacingTop=16;spacingLeft=16;" value="2. Dataset Curation and Prep" vertex="1">
+          <mxGeometry height="900" width="360" x="390" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#D1D5DB;fontSize=24;fontStyle=1;align=left;verticalAlign=top;spacingTop=16;spacingLeft=16;" value="3. Ray Training Platform" vertex="1">
+          <mxGeometry height="900" width="610" x="780" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#D1D5DB;fontSize=24;fontStyle=1;align=left;verticalAlign=top;spacingTop=16;spacingLeft=16;" value="4. Outputs and Consumers" vertex="1">
+          <mxGeometry height="900" width="340" x="1420" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=34;fontStyle=1;" value="Grab User-Focused Foundation Model Backend&lt;br&gt;Logical system view inferred from the Ray Summit 2025 transcript" vertex="1">
+          <mxGeometry height="72" width="1200" x="40" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Grab app activity data&lt;br&gt;transactions&lt;br&gt;click events&lt;br&gt;preferences" vertex="1">
+          <mxGeometry height="132" width="230" x="80" y="197.5" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-52" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Marketplace and partner data&lt;br&gt;supply and demand&lt;br&gt;traffic&lt;br&gt;weather&lt;br&gt;merchant and driver insights" vertex="1">
+          <mxGeometry height="170" width="260" x="50" y="358.5" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-51" edge="1" parent="1" source="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Experimentation data&lt;br&gt;feature responses&lt;br&gt;treatment impact&lt;br&gt;network effects" vertex="1">
+          <mxGeometry height="132" width="230" x="80" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="External semantic priors&lt;br&gt;public text embeddings for dish descriptions and cuisine tags" vertex="1">
+          <mxGeometry height="138" width="260" x="50" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-53" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=20;" value="Curated multimodal training dataset&lt;br&gt;users, drivers, merchants, locations, marketplace entities" vertex="1">
+          <mxGeometry height="147" width="260" x="450" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=20;" value="Dataset curation loop&lt;br&gt;select important events&lt;br&gt;filter data&lt;br&gt;iterate on representation choices" vertex="1">
+          <mxGeometry height="167" width="255" x="452.5" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=20;" value="Last-mile preprocessing&lt;br&gt;data loading&lt;br&gt;time-series construction&lt;br&gt;batch assembly" vertex="1">
+          <mxGeometry height="162" width="275" x="442.5" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=20;" value="Input representation layer&lt;br&gt;tabular learnable tokens&lt;br&gt;text, categorical, location adapters&lt;br&gt;absolute and relative time encoding" vertex="1">
+          <mxGeometry height="205" width="275" x="442.5" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=21;fontStyle=1;" value="Ray heterogeneous cluster&lt;br&gt;scale CPU-heavy work separately from GPU-heavy work" vertex="1">
+          <mxGeometry height="96" width="480" x="845" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-54" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=20;arcSize=0;" value="CPU worker pool&lt;br&gt;dataset prep&lt;br&gt;data loading&lt;br&gt;embedding and optimizer offload&lt;br&gt;sparse Adam state" vertex="1">
+          <mxGeometry height="162" width="225" x="820" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=20;" value="GPU trainer pool&lt;br&gt;adapter-centric transformer backbone&lt;br&gt;distributed pre-training across multiple nodes" vertex="1">
+          <mxGeometry height="162" width="220" x="1110" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=20;" value="Pre-training objectives&lt;br&gt;masked language modeling&lt;br&gt;next-token prediction&lt;br&gt;modality-specific heads" vertex="1">
+          <mxGeometry height="142" width="220" x="1110" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=20;" value="Large-vocabulary efficiency path&lt;br&gt;hierarchical classification first&lt;br&gt;then BYOL-style target network&lt;br&gt;EMA update" vertex="1">
+          <mxGeometry height="190" width="250" x="807.5" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-55" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-59" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1E6;strokeColor=#D7A06A;fontSize=20;fontStyle=1;" value="Trained foundation model&lt;br&gt;user-centric multimodal representation learner" vertex="1">
+          <mxGeometry height="130" width="235" x="960" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#9CA3AF;fontSize=18;" value="Observed outcome from transcript&lt;br&gt;training time reduced 6x&lt;br&gt;GPU utilization improved from 19% to 85%" vertex="1">
+          <mxGeometry height="72" width="530" x="812.5" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Long-term entity embeddings&lt;br&gt;from ID layers&lt;br&gt;historical behavior representation" vertex="1">
+          <mxGeometry height="122" width="230" x="1475" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-58" edge="1" parent="1" source="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Short-term user embeddings&lt;br&gt;recent interaction series&lt;br&gt;sequence aggregation" vertex="1">
+          <mxGeometry height="122" width="230" x="1475" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-57" edge="1" parent="1" source="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#7DA2D6;fontSize=20;" value="Foundation model artifact&lt;br&gt;future direct fine-tuning&lt;br&gt;or downstream model replacement exploration" vertex="1">
+          <mxGeometry height="122" width="230" x="1475" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="uP20_M9h3qNh-CEfUTOH-56" edge="1" parent="1" source="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=20;" value="Downstream consumers&lt;br&gt;recommendation and ranking models&lt;br&gt;use embeddings as additional features" vertex="1">
+          <mxGeometry height="122" width="230" x="1475" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;strokeColor=#82B18A;fontSize=19;" value="Data scientists and use-case teams&lt;br&gt;rides, food, grocery, fintech, personalization" vertex="1">
+          <mxGeometry height="110" width="225" x="1477.5" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;fontSize=15;strokeWidth=2;" target="14" value="semantic boost">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="16" value="scale CPU path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="17" value="scale GPU path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="17" value="batches and offloaded state">
+          <mxGeometry relative="1" y="86" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="50" edge="1" parent="1" source="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=15;strokeWidth=2;" target="26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
