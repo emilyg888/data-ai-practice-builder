@@ -21,27 +21,27 @@ Enterprise Sources
 
 | Path | Purpose |
 |---|---|
-| `bfsi-ai-practice-builder/00_overview` | Practice framing and high-level positioning. |
-| `bfsi-ai-practice-builder/01_capabilities` | Capability definitions across data, governance, AI, delivery, and consumption. |
-| `bfsi-ai-practice-builder/02_patterns` | Reusable architecture and solution patterns. |
-| `bfsi-ai-practice-builder/03_playbooks` | Delivery playbooks for common engagement types. |
-| `bfsi-ai-practice-builder/04_templates` | Reusable templates for practice outputs. |
-| `bfsi-ai-practice-builder/05_reference_architectures` | Platform and deployment reference architectures. |
-| `bfsi-ai-practice-builder/06_domain_models` | BFSI domain structures and business entities. |
-| `bfsi-ai-practice-builder/07_controls` | Data, AI, security, regulatory, and operational controls. |
-| `bfsi-ai-practice-builder/08_case_studies` | Use cases and case studies organized by topic. |
-| `bfsi-ai-practice-builder/09_indexes` | Indexes for retrieval and navigation. |
-| `bfsi-ai-practice-builder/10_dashboard` | Dashboard-oriented presentation assets. |
-| `bfsi-ai-practice-builder/11_ai_assistant` | Prompting, retrieval, and assistant output scaffolding. |
-| `bfsi-ai-practice-builder/12_assets` | Supporting assets. |
+| `ai-accelerator-builder/00_overview` | Practice framing and high-level positioning. |
+| `ai-accelerator-builder/01_capabilities` | Capability definitions across data, governance, AI, delivery, and consumption. |
+| `ai-accelerator-builder/02_patterns` | Reusable architecture and solution patterns. |
+| `ai-accelerator-builder/03_playbooks` | Delivery playbooks for common engagement types. |
+| `ai-accelerator-builder/04_templates` | Reusable templates for practice outputs. |
+| `ai-accelerator-builder/05_reference_architectures` | Platform and deployment reference architectures. |
+| `ai-accelerator-builder/06_domain_models` | BFSI domain structures and business entities. |
+| `ai-accelerator-builder/07_controls` | Data, AI, security, regulatory, and operational controls. |
+| `ai-accelerator-builder/08_case_studies` | Use cases and case studies organized by topic. |
+| `ai-accelerator-builder/09_indexes` | Indexes for retrieval and navigation. |
+| `ai-accelerator-builder/10_dashboard` | Dashboard-oriented presentation assets. |
+| `ai-accelerator-builder/11_ai_assistant` | Prompting, retrieval, and assistant output scaffolding. |
+| `ai-accelerator-builder/12_assets` | Supporting assets. |
 | `design` | Architecture and reasoning-system design documents. |
 
 ## Start Here
 
 - `design/architecture-overview.md`
 - `design/BFSI_AI_Practice_Builder_Reasoning_System.md`
-- `bfsi-ai-practice-builder/02_patterns`
-- `bfsi-ai-practice-builder/08_case_studies`
+- `ai-accelerator-builder/02_patterns`
+- `ai-accelerator-builder/08_case_studies`
 
 ## How To Use This Repo
 

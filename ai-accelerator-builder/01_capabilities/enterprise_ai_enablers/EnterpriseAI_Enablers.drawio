@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="_4POyONvBYxfuAQTMz1T">
+    <mxGraphModel dx="2095" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;labelBackgroundColor=none;fillColor=light-dark(#FFFFFF,#7EA6E0);" value="&amp;nbsp;Data Foundation" vertex="1">
+          <mxGeometry height="170" width="890" x="-160" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;" value="&amp;nbsp;Data Products &amp;amp;&amp;nbsp;&amp;nbsp;&lt;div&gt;&amp;nbsp;Data Contracts&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="640" x="-10" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;fillColor=light-dark(#FFFFFF,#666666);" value="&amp;nbsp;Build &amp;amp; Ship&lt;div&gt;&amp;nbsp;Agile Loop&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="890" x="-160" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;labelBackgroundColor=light-dark(#FFFFFF,#666666);fillColor=light-dark(#FFFFFF,#666666);" value="&amp;nbsp;AI Workbench" vertex="1">
+          <mxGeometry height="150" width="890" x="-160" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;fillColor=light-dark(#FFFFFF,#7EA6E0);" value="&amp;nbsp;Compliance &amp;amp;&lt;div&gt;&amp;nbsp;Control&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="890" x="-160" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Governed&amp;nbsp;&lt;div&gt;Semantic Layer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="170" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Self-improving&lt;div&gt;Feature Stores&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="425" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Data &amp;amp; AI&lt;div&gt;Governance, Security&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="270" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Compliance &amp;amp;&lt;div&gt;Control&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="80" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="CI/CD&lt;div&gt;IaC&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="80" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="DevOps" vertex="1">
+          <mxGeometry height="60" width="170" x="270" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="DataOps" vertex="1">
+          <mxGeometry height="60" width="170" x="460" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Context &amp;amp; RAG" vertex="1">
+          <mxGeometry height="60" width="170" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="MCPs&lt;div&gt;Skills, Prompts&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="460" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Data Pipeline&lt;div&gt;Ingestion / Transformation / Integration / DQ Checks / Data Lineage&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="640" x="-10" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Agentic&lt;div&gt;Workflow&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="270" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Eval" vertex="1">
+          <mxGeometry height="60" width="170" x="460" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Observability" vertex="1">
+          <mxGeometry height="60" width="170" x="80" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Operational&amp;nbsp;&lt;div&gt;Risks&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="270" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="sAjzEKKX0uIjPzFpt8Ug-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" value="Operational&amp;nbsp;&lt;div&gt;Risks&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="460" y="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

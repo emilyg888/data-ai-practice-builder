@@ -82,4 +82,4 @@ The lower half of the stack is still the data platform. The differentiating laye
 
 ## Related Documents
 - `design/BFSI_AI_Practice_Builder_Reasoning_System.md`: Full reasoning model and detailed architecture narrative.
-- `bfsi-ai-practice-builder/05_reference_architectures/hybrid/reference_architecture.md`: Base template for a hybrid target architecture.
+- `ai-accelerator-builder/05_reference_architectures/hybrid/reference_architecture.md`: Base template for a hybrid target architecture.

@@ -1,0 +1,29 @@
+---
+type: reference_note
+platform: aws
+status: draft
+source: aws-skill-builder-question-13
+completeness: full
+---
+
+# 13: RAG Patterns
+
+## Scenario
+
+A financial services company operates RAG for an application that answers user questions by using internal market analysis reports. The application uses Amazon Bedrock for the embedding model. The application uses an Amazon OpenSearch Service cluster as the vector store. An AWS Lambda function performs the embedding and search logic. After a recent code update to the Lambda function, the application starts returning generic responses. For example, the application returns “no relevant information found” even for questions that previously returned accurate answers. Amazon CloudWatch Logs shows no errors. AWS X-Ray confirms successful FM invocation. The OpenSearch Service cluster is healthy. Query latency remains normal. What is the cause of this issue?
+
+## Common implementation patterns
+
+- The updated Lambda function uses a different version of the embedding model.
+
+## Common anti-patterns
+
+- Avoid the document embeddings in OpenSearch Service were deleted during the application update and have not been re-indexed. because if the embeddings had been deleted, the issue would appear in logs or cause failed OpenSearch queries. The scenario states that there are no errors or unusual query...
+- Avoid the Lambda function’s IAM role is missing the permission for bedrock:InvokeModel. because the scenario states that the model is being invoked successfully. If the IAM permission were missing, then the Lambda function would throw an access error and fail before generating a response. Learn...
+- Avoid the Amazon Bedrock FM temperature parameter was increased. because a high temperature setting can degrade the quality of generation. However, a high temperature setting would not prevent the model from finding relevant context. The reported issue relates to a retrieval failure, not generation...
+
+## Architecture guidance
+
+- Embedding drift occurs when query embeddings are generated with a different model than the model used to index documents.
+- This issue causes a mismatch in vector space and makes retrieval ineffective.
+- In this scenario, the update to the Lambda function likely introduced a new embedding model version or configuration.
