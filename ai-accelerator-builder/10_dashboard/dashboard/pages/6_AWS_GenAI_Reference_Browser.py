@@ -10,11 +10,14 @@ if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
 from components.cards import render_tag_list
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 from services.export_service import records_to_csv
+from services.metadata_parser import extract_front_matter
 
 
 st.set_page_config(page_title="AWS GenAI Reference Browser", page_icon=":material/cloud:", layout="wide")
+render_sidebar_nav("pages/6_AWS_GenAI_Reference_Browser.py")
 
 content = load_repository_content()
 aws_references = content["aws_references"]
@@ -68,6 +71,8 @@ with right:
     if filtered:
         selected_title = st.selectbox("Open AWS reference", [note["title"] for note in filtered])
         selected = next(note for note in filtered if note["title"] == selected_title)
+        note_path = Path(selected["absolute_path"])
+        _, note_body = extract_front_matter(note_path.read_text(encoding="utf-8"))
         st.markdown(f"## {selected['title']}")
         st.caption(selected["file_path"])
         if selected.get("scenario"):
@@ -88,6 +93,20 @@ with right:
             st.markdown("**Architecture guidance**")
             for item in selected["architecture_guidance"][:4]:
                 st.write(f"- {item}")
-        st.markdown(f"[Open full note]({selected['absolute_path']})")
+        action_left, action_right = st.columns([1, 1], vertical_alignment="center")
+        with action_left:
+            if st.button("Show full note", use_container_width=True):
+                st.session_state["aws_reference_full_note_id"] = selected["reference_id"]
+        with action_right:
+            st.download_button(
+                "Download full note",
+                data=note_body,
+                file_name=note_path.name,
+                mime="text/markdown",
+                use_container_width=True,
+            )
+        if st.session_state.get("aws_reference_full_note_id") == selected["reference_id"]:
+            with st.expander("Full note", expanded=True):
+                st.markdown(note_body)
     else:
         st.info("No AWS references match the current filters.")

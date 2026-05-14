@@ -1,6 +1,6 @@
 # MVP 2 Dashboard
 
-This folder contains the MVP 2 local-first dashboard for the AI Accelerator Builder.
+This folder contains the MVP 2 local-first dashboard for the AI Accelerator.
 
 ## What it does
 

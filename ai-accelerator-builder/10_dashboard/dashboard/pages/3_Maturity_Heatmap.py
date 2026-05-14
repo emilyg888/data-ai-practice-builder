@@ -10,6 +10,7 @@ if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
 from components.heatmap import build_maturity_rows, render_heatmap_html
+from components.sidebar_nav import render_sidebar_nav
 from components.tables import render_markdown_table
 from services.assessment_store import default_assessment, list_assessments, load_assessment, save_assessment
 from services.content_loader import load_repository_content
@@ -40,6 +41,7 @@ def initial_focus_capabilities(assessment: dict, capabilities: list[dict]) -> li
 
 
 st.set_page_config(page_title="Maturity Heatmap", page_icon=":material/heat_pump:", layout="wide")
+render_sidebar_nav("pages/3_Maturity_Heatmap.py")
 
 content = load_repository_content()
 capabilities = content["capabilities"]

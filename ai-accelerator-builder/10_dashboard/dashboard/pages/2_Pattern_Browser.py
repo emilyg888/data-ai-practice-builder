@@ -10,6 +10,7 @@ if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
 from components.cards import render_tag_list
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 from services.export_service import records_to_csv
 from services.recommendation_engine import recommend_patterns
@@ -114,6 +115,7 @@ def inject_page_css() -> None:
 
 
 st.set_page_config(page_title="Pattern Browser", page_icon=":material/schema:", layout="wide")
+render_sidebar_nav("pages/2_Pattern_Browser.py")
 
 inject_page_css()
 

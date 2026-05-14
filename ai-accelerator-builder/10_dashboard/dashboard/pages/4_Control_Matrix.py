@@ -11,6 +11,7 @@ if str(APP_ROOT) not in sys.path:
 
 from components.cards import render_tag_list
 from components.filters import filter_records, unique_values
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 from services.export_service import records_to_csv
 
@@ -116,6 +117,7 @@ def matched_control_names(record: dict, controls: list[dict]) -> list[str]:
 
 
 st.set_page_config(page_title="Control Matrix", page_icon=":material/gpp_good:", layout="wide")
+render_sidebar_nav("pages/4_Control_Matrix.py")
 
 inject_page_css()
 

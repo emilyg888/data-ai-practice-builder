@@ -10,6 +10,7 @@ if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
 from components.heatmap import build_maturity_rows
+from components.sidebar_nav import render_sidebar_nav
 from components.tables import render_markdown_table
 from services.assessment_store import save_assessment
 from services.content_loader import load_repository_content
@@ -44,6 +45,7 @@ def strip_summary_sections(markdown_text: str, headings: set[str]) -> str:
 
 
 st.set_page_config(page_title="Client Assessment", page_icon=":material/assignment:", layout="wide")
+render_sidebar_nav("pages/5_Client_Assessment.py")
 
 content = load_repository_content()
 capabilities = content["capabilities"]

@@ -11,6 +11,7 @@ if str(APP_ROOT) not in sys.path:
 
 from components.cards import render_tag_list
 from components.filters import filter_records, unique_values
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 from services.export_service import records_to_csv
 
@@ -99,6 +100,7 @@ def inject_page_css() -> None:
 
 
 st.set_page_config(page_title="Capability Browser", page_icon=":material/view_list:", layout="wide")
+render_sidebar_nav("pages/1_Capability_Browser.py")
 
 inject_page_css()
 

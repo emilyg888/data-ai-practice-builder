@@ -9,19 +9,21 @@ APP_ROOT = Path(__file__).resolve().parent
 if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 
 
 st.set_page_config(
-    page_title="AI Accelerator Builder",
+    page_title="AI Accelerator",
     page_icon=":material/account_tree:",
     layout="wide",
 )
 
 
 content = load_repository_content()
+render_sidebar_nav("app.py")
 
-st.title("AI Accelerator Builder Dashboard")
+st.title("AI Accelerator Dashboard")
 st.caption("MVP 2: navigation, assessment, and decision-support over the Markdown knowledge base")
 
 hero_left, hero_right = st.columns([2, 1])

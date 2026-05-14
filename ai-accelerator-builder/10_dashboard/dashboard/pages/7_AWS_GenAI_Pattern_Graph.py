@@ -11,33 +11,19 @@ APP_ROOT = Path(__file__).resolve().parents[1]
 if str(APP_ROOT) not in sys.path:
     sys.path.insert(0, str(APP_ROOT))
 
+from components.sidebar_nav import render_sidebar_nav
 from services.content_loader import load_repository_content
 from services.graph_builder import build_aws_pattern_graph
 
 
 st.set_page_config(page_title="AWS GenAI Pattern Graph", page_icon=":material/hub:", layout="wide")
+render_sidebar_nav("pages/7_AWS_GenAI_Pattern_Graph.py")
 
 content = load_repository_content()
 graph = build_aws_pattern_graph(content["aws_references"])
 
 st.title("AWS GenAI Pattern Graph")
 st.caption("Interactive knowledge graph over the AWS GenAI pattern corpus, styled after the Obsidian dashboard graph view.")
-
-metric_columns = st.columns(4)
-metric_columns[0].metric("Nodes", graph["stats"]["nodes"])
-metric_columns[1].metric("Edges", graph["stats"]["edges"])
-metric_columns[2].metric("AWS pattern themes", graph["stats"]["patterns"])
-metric_columns[3].metric("AWS services", graph["stats"]["components"])
-
-st.markdown(
-    """
-    This view aggregates the AWS reference notes into three node types:
-
-    - `Concepts`: control themes, AWS families, and AI impact lenses
-    - `Components`: AWS services and managed building blocks
-    - `Patterns`: reusable technical GenAI pattern themes derived from the note corpus
-    """
-)
 
 
 def build_graph_html(data: dict[str, object]) -> str:
@@ -73,25 +59,17 @@ def build_graph_html(data: dict[str, object]) -> str:
       }}
 
       .layout {{
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        min-height: 920px;
+        display: flex;
+        flex-direction: column;
+        min-height: 1260px;
         border: 1px solid var(--border);
         border-radius: 18px;
         overflow: hidden;
         background: var(--bg);
       }}
 
-      .sidebar {{
-        background: linear-gradient(180deg, #0f172a 0%, #0b1325 100%);
-        border-right: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-      }}
-
       .section {{
         padding: 18px 18px 16px;
-        border-bottom: 1px solid var(--border);
       }}
 
       .title {{
@@ -115,18 +93,6 @@ def build_graph_html(data: dict[str, object]) -> str:
         padding: 12px 14px;
         font-size: 14px;
         outline: none;
-      }}
-
-      .tab {{
-        width: 100%;
-        border: none;
-        border-radius: 12px;
-        background: rgba(91, 141, 239, 0.22);
-        color: #8cb2ff;
-        text-align: left;
-        padding: 14px 14px;
-        font-size: 15px;
-        font-weight: 700;
       }}
 
       .list {{
@@ -179,6 +145,8 @@ def build_graph_html(data: dict[str, object]) -> str:
       .graph-wrap {{
         position: relative;
         min-width: 0;
+        min-height: 820px;
+        flex: 1 1 auto;
         background:
           radial-gradient(circle at 30% 20%, rgba(91, 141, 239, 0.08), transparent 34%),
           radial-gradient(circle at 72% 62%, rgba(103, 210, 111, 0.08), transparent 38%),
@@ -187,7 +155,7 @@ def build_graph_html(data: dict[str, object]) -> str:
 
       svg {{
         width: 100%;
-        height: 920px;
+        height: 820px;
         display: block;
       }}
 
@@ -246,6 +214,33 @@ def build_graph_html(data: dict[str, object]) -> str:
         line-height: 1.5;
       }}
 
+      .bottom-dock {{
+        border-top: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(13, 21, 39, 0.96) 0%, rgba(11, 18, 33, 0.98) 100%);
+        display: grid;
+        grid-template-columns: minmax(220px, 1.2fr) minmax(220px, 1fr) minmax(280px, 1.4fr) minmax(260px, 1.4fr);
+        gap: 0;
+        align-items: start;
+      }}
+
+      .dock-card {{
+        padding: 18px 20px;
+        border-right: 1px solid var(--border);
+        min-height: 320px;
+      }}
+
+      .dock-card:last-child {{
+        border-right: none;
+      }}
+
+      .dock-title {{
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }}
+
       .chips {{
         display: flex;
         flex-wrap: wrap;
@@ -268,36 +263,73 @@ def build_graph_html(data: dict[str, object]) -> str:
       }}
 
       @media (max-width: 1200px) {{
-        .layout {{
-          grid-template-columns: 280px 1fr;
+        .detail {{
+          width: 280px;
+        }}
+
+        .bottom-dock {{
+          grid-template-columns: repeat(2, minmax(240px, 1fr));
+        }}
+      }}
+
+      @media (max-width: 780px) {{
+        .graph-wrap {{
+          min-height: 620px;
+        }}
+
+        svg {{
+          height: 620px;
         }}
 
         .detail {{
-          width: 280px;
+          position: static;
+          width: auto;
+          max-height: none;
+          margin: 14px;
+        }}
+
+        .bottom-dock {{
+          grid-template-columns: 1fr;
+        }}
+
+        .dock-card {{
+          border-right: none;
+          border-top: 1px solid var(--border);
         }}
       }}
     </style>
   </head>
   <body>
     <div class="layout">
-      <aside class="sidebar">
-        <div class="section">
-          <h1 class="title">Knowledge Dashboard</h1>
-          <div id="stats" class="muted"></div>
+      <main class="graph-wrap">
+        <svg id="graph" viewBox="0 0 1320 920" preserveAspectRatio="xMidYMid meet"></svg>
+        <div id="tooltip" class="tooltip"></div>
+        <div id="detail" class="detail">
+          <h3>AWS Pattern Graph</h3>
+          <p>Select a node to inspect what it connects to across the AWS GenAI reference corpus.</p>
         </div>
-        <div class="section">
-          <input id="search" class="search" type="text" placeholder="Search..." />
-        </div>
-        <div class="section">
-          <button class="tab">🔗 Graph</button>
+      </main>
+      <section class="bottom-dock">
+        <div class="dock-card">
+          <div class="dock-title">Search</div>
+          <input id="search" class="search" type="text" placeholder="Search nodes, services, or themes..." />
           <div class="list" style="margin-top: 16px;">
-            <div class="stat-row"><span>💡 Concepts</span><span id="conceptCount">0</span></div>
-            <div class="stat-row"><span>🧩 Components</span><span id="componentCount">0</span></div>
-            <div class="stat-row"><span>🟠 Patterns</span><span id="patternCount">0</span></div>
+            <div class="stat-row"><span>Concepts</span><span id="conceptCount">0</span></div>
+            <div class="stat-row"><span>Components</span><span id="componentCount">0</span></div>
+            <div class="stat-row"><span>Patterns</span><span id="patternCount">0</span></div>
           </div>
         </div>
-        <div class="section">
-          <div class="label-strong">Filters</div>
+        <div class="dock-card">
+          <div class="dock-title">Graph Stats</div>
+          <h1 class="title" style="font-size: 20px;">Knowledge Dashboard</h1>
+          <div id="stats" class="muted"></div>
+          <div class="list" style="margin-top: 16px;">
+            <div class="muted">Node size = note frequency</div>
+            <div class="muted">Edge opacity = relationship weight</div>
+          </div>
+        </div>
+        <div class="dock-card">
+          <div class="dock-title">Filters</div>
           <div class="list">
             <label class="check-row">
               <input id="showConcepts" type="checkbox" checked />
@@ -320,24 +352,15 @@ def build_graph_html(data: dict[str, object]) -> str:
             <input id="frequency" class="range" type="range" min="0" max="{data['stats']['max_frequency']}" value="0" />
           </div>
         </div>
-        <div class="section" style="margin-top: auto;">
-          <div class="muted">Node size = note frequency</div>
-          <div class="muted">Edge opacity = relationship weight</div>
-        </div>
-      </aside>
-      <main class="graph-wrap">
-        <svg id="graph" viewBox="0 0 1320 920" preserveAspectRatio="xMidYMid meet"></svg>
-        <div id="tooltip" class="tooltip"></div>
-        <div id="detail" class="detail">
-          <h3>AWS Pattern Graph</h3>
-          <p>Select a node to inspect what it connects to across the AWS GenAI reference corpus.</p>
+        <div class="dock-card">
+          <div class="dock-title">Legend</div>
           <div class="chips">
             <span class="chip">Concepts = control and architecture ideas</span>
             <span class="chip">Components = AWS services</span>
             <span class="chip">Patterns = reusable technical themes</span>
           </div>
         </div>
-      </main>
+      </section>
     </div>
 
     <script>
@@ -401,11 +424,6 @@ def build_graph_html(data: dict[str, object]) -> str:
           detail.innerHTML = `
             <h3>AWS Pattern Graph</h3>
             <p>Select a node to inspect what it connects to across the AWS GenAI reference corpus.</p>
-            <div class="chips">
-              <span class="chip">Concepts = control and architecture ideas</span>
-              <span class="chip">Components = AWS services</span>
-              <span class="chip">Patterns = reusable technical themes</span>
-            </div>
           `;
           return;
         }}
@@ -579,4 +597,4 @@ def build_graph_html(data: dict[str, object]) -> str:
 """
 
 
-components.html(build_graph_html(graph), height=960, scrolling=False)
+components.html(build_graph_html(graph), height=1320, scrolling=False)
