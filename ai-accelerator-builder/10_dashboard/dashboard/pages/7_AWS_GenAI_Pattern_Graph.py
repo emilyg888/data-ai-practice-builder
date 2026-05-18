@@ -61,7 +61,7 @@ def build_graph_html(data: dict[str, object]) -> str:
       .layout {{
         display: flex;
         flex-direction: column;
-        min-height: 1260px;
+        min-height: 1380px;
         border: 1px solid var(--border);
         border-radius: 18px;
         overflow: hidden;
@@ -143,9 +143,10 @@ def build_graph_html(data: dict[str, object]) -> str:
       }}
 
       .graph-wrap {{
-        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
         min-width: 0;
-        min-height: 820px;
+        min-height: 860px;
         flex: 1 1 auto;
         background:
           radial-gradient(circle at 30% 20%, rgba(91, 141, 239, 0.08), transparent 34%),
@@ -153,9 +154,15 @@ def build_graph_html(data: dict[str, object]) -> str:
           #0f172a;
       }}
 
+      .graph-canvas {{
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+      }}
+
       svg {{
         width: 100%;
-        height: 820px;
+        height: 860px;
         display: block;
       }}
 
@@ -175,17 +182,12 @@ def build_graph_html(data: dict[str, object]) -> str:
       }}
 
       .detail {{
-        position: absolute;
-        top: 18px;
-        right: 18px;
-        width: 320px;
-        max-height: calc(100% - 36px);
+        border-left: 1px solid rgba(148, 163, 184, 0.12);
+        width: 100%;
+        height: 100%;
         overflow: auto;
         background: rgba(15, 23, 42, 0.94);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+        padding: 24px 22px;
         backdrop-filter: blur(10px);
       }}
 
@@ -226,7 +228,7 @@ def build_graph_html(data: dict[str, object]) -> str:
       .dock-card {{
         padding: 18px 20px;
         border-right: 1px solid var(--border);
-        min-height: 320px;
+        min-height: 280px;
       }}
 
       .dock-card:last-child {{
@@ -263,8 +265,13 @@ def build_graph_html(data: dict[str, object]) -> str:
       }}
 
       @media (max-width: 1200px) {{
+        .graph-wrap {{
+          grid-template-columns: 1fr;
+        }}
+
         .detail {{
-          width: 280px;
+          border-left: none;
+          border-top: 1px solid rgba(148, 163, 184, 0.12);
         }}
 
         .bottom-dock {{
@@ -274,7 +281,7 @@ def build_graph_html(data: dict[str, object]) -> str:
 
       @media (max-width: 780px) {{
         .graph-wrap {{
-          min-height: 620px;
+          min-height: 700px;
         }}
 
         svg {{
@@ -285,7 +292,6 @@ def build_graph_html(data: dict[str, object]) -> str:
           position: static;
           width: auto;
           max-height: none;
-          margin: 14px;
         }}
 
         .bottom-dock {{
@@ -302,8 +308,10 @@ def build_graph_html(data: dict[str, object]) -> str:
   <body>
     <div class="layout">
       <main class="graph-wrap">
-        <svg id="graph" viewBox="0 0 1320 920" preserveAspectRatio="xMidYMid meet"></svg>
-        <div id="tooltip" class="tooltip"></div>
+        <div class="graph-canvas">
+          <svg id="graph" viewBox="0 0 1320 920" preserveAspectRatio="xMidYMid meet"></svg>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
         <div id="detail" class="detail">
           <h3>AWS Pattern Graph</h3>
           <p>Select a node to inspect what it connects to across the AWS GenAI reference corpus.</p>
@@ -597,4 +605,4 @@ def build_graph_html(data: dict[str, object]) -> str:
 """
 
 
-components.html(build_graph_html(graph), height=1320, scrolling=False)
+components.html(build_graph_html(graph), height=1460, scrolling=False)
