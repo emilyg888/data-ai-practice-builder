@@ -98,7 +98,9 @@ def iter_markdown_files() -> list[Path]:
         files.extend(
             path
             for path in base.rglob("*.md")
-            if ".git" not in path.parts and "/dashboard/" not in path.as_posix()
+            if ".git" not in path.parts
+            and "/dashboard/" not in path.as_posix()
+            and path.name != "issue_pending_review.md"
         )
     return sorted(files)
 
@@ -232,18 +234,28 @@ def build_reference_note_record(record: dict) -> dict:
     metadata = record["metadata"]
     sections = record["sections"]
     title = normalize_scalar(metadata.get("title")) or record["title"]
-    summary = first_paragraph(sections.get("scenario", "")) or first_paragraph(sections.get("_root", ""))
+    pattern_summary = first_paragraph(sections.get("pattern_summary", ""))
+    summary = pattern_summary or first_paragraph(sections.get("scenario", "")) or first_paragraph(sections.get("_root", ""))
     platform = normalize_scalar(metadata.get("platform")) or infer_platform(record["path"])
     related_controls = ensure_list(metadata.get("related_controls")) or infer_controls_from_text(record["body"])
     implementation_patterns = extract_bullets(sections.get("common_implementation_patterns", ""))
     anti_patterns = extract_bullets(sections.get("common_anti_patterns", ""))
     architecture_guidance = extract_bullets(sections.get("architecture_guidance", ""))
+    aws_family = (
+        normalize_scalar(metadata.get("pattern_family"))
+        or normalize_scalar(metadata.get("aws_family"))
+        or (infer_aws_family(record["file_path"], title, record["body"]) if platform == "aws" else "")
+    )
+    aws_services = ensure_list(metadata.get("aws_services")) or (
+        infer_services(record["body"], record["file_path"]) if platform == "aws" else []
+    )
     return {
         "reference_id": normalize_scalar(metadata.get("reference_id"))
         or normalize_scalar(metadata.get("source"))
         or slugify(title),
         "title": title,
         "summary": summary,
+        "pattern_summary": pattern_summary,
         "scenario": sections.get("scenario", ""),
         "implementation_patterns": implementation_patterns,
         "anti_patterns": anti_patterns,
@@ -254,8 +266,10 @@ def build_reference_note_record(record: dict) -> dict:
         "risk_level": normalize_scalar(metadata.get("risk_level")) or "medium_to_high",
         "ai_impact": ensure_list(metadata.get("ai_impact")) or infer_ai_impact(record["body"]),
         "related_controls": related_controls,
-        "aws_family": infer_aws_family(record["file_path"], title, record["body"]) if platform == "aws" else "",
-        "aws_services": infer_services(record["body"], record["file_path"]) if platform == "aws" else [],
+        "aws_family": aws_family,
+        "aws_services": aws_services,
+        "topics": ensure_list(metadata.get("topics")),
+        "use_cases": ensure_list(metadata.get("use_cases")),
         "file_path": record["file_path"],
         "absolute_path": str(record["path"]),
     }
@@ -442,6 +456,11 @@ def infer_services(body: str, path: str = "") -> list[str]:
         "Amazon DynamoDB",
         "Amazon EventBridge",
         "Amazon Bedrock Data Automation",
+        "Amazon Bedrock AgentCore Runtime",
+        "Amazon Comprehend",
+        "Amazon Q Developer",
+        "AWS Outposts",
+        "AWS Well-Architected Tool",
     ]
     text = f"{body} {path}".lower()
     found: list[str] = []

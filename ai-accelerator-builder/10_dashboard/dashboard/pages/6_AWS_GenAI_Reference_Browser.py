@@ -11,6 +11,13 @@ if str(APP_ROOT) not in sys.path:
 
 from components.cards import render_tag_list
 from components.sidebar_nav import render_sidebar_nav
+from services.aws_reference_agent import (
+    ISSUE_FILE_NAME,
+    answer_architecture_question,
+    search_references,
+    topic_suggestions,
+    write_pending_review,
+)
 from services.content_loader import load_repository_content
 from services.export_service import records_to_csv
 from services.metadata_parser import extract_front_matter
@@ -33,18 +40,28 @@ metric_columns[3].metric("Control themes", len({control for note in aws_referenc
 
 left, right = st.columns([1, 3], vertical_alignment="top")
 with left:
-    search = st.text_input("Search AWS references")
+    search = st.text_input("Keyword or topic search", placeholder="Try guardrails, RAG, streaming, PII, SageMaker...")
+    topics = st.multiselect("Quick topics", topic_suggestions(aws_references))
     families = st.multiselect("Pattern family", sorted({note["aws_family"] for note in aws_references if note.get("aws_family")}))
     services = st.multiselect("AWS service", sorted({service for note in aws_references for service in note.get("aws_services", [])}))
     control_themes = st.multiselect("Control theme", sorted({control for note in aws_references for control in note.get("related_controls", [])}))
+    st.markdown("### Knowledge agent")
+    architecture_question = st.text_area(
+        "Ask about architecture reference patterns",
+        placeholder="Example: How should I enforce Bedrock guardrails across Converse API calls?",
+        height=120,
+    )
+    if st.button("Answer from AWS references", use_container_width=True):
+        st.session_state["aws_reference_agent_answer"] = answer_architecture_question(
+            architecture_question,
+            aws_references,
+        )
+    issue_path = Path(content["knowledge_root"]) / "05_reference_architectures" / "aws" / ISSUE_FILE_NAME
+    if st.button("Regenerate pending review file", use_container_width=True):
+        issue_count = write_pending_review(aws_references, issue_path)
+        st.success(f"Updated {issue_path.name} with {issue_count} review flags.")
 
-filtered = aws_references
-if search:
-    lowered = search.lower()
-    filtered = [
-        note for note in filtered
-        if lowered in note["title"].lower() or lowered in note["summary"].lower() or lowered in note["file_path"].lower()
-    ]
+filtered = search_references(aws_references, search, topics)
 if families:
     filtered = [note for note in filtered if note.get("aws_family") in families]
 if services:
@@ -53,6 +70,9 @@ if control_themes:
     filtered = [note for note in filtered if set(note.get("related_controls", [])).intersection(set(control_themes))]
 
 with right:
+    if st.session_state.get("aws_reference_agent_answer"):
+        with st.expander("Knowledge agent answer", expanded=True):
+            st.markdown(st.session_state["aws_reference_agent_answer"])
     st.write(f"{len(filtered)} filtered AWS references")
     st.download_button(
         "Export filtered AWS references to CSV",
